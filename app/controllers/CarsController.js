@@ -7,6 +7,7 @@ import { setHTML } from "../utils/Writer.js";
 export class CarsController {
   constructor() {
     AppState.on('cars', this.drawCars)
+    AppState.on('account', this.drawCars)
 
     this.getCars()
   }

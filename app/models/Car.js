@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js"
+
 export class Car {
   constructor(data) {
     // REVIEW make sure to save the id from the API, do not generate here
@@ -12,6 +14,7 @@ export class Car {
     this.createdAt = new Date(data.createdAt)
     this.updatedAt = new Date(data.updatedAt)
     this.color = data.color
+    this.creatorId = data.creatorId
     this.creator = data.creator
   }
 
@@ -34,7 +37,7 @@ export class Car {
               <p>${this.description}</p>
               <p>Engine Type: ${this.engineType}</p>
               <div class="text-end">
-                <button onclick="app.CarsController.destroyCar('${this.id}')" class="btn btn-outline-danger">Delete Car</button>
+                ${this.computeDeleteButton}
               </div>
             </div>
           </div>
@@ -42,6 +45,16 @@ export class Car {
       </div>
     </div>
     `
+  }
+
+  get computeDeleteButton() {
+    // NOTE this checks if the logged in user created the car
+    // NOTE ? is the elvis operator. If the property before the elvis operator is null or undefined, it returns null or undefined and does not drill into that property
+    if (this.creatorId != AppState.account?.id) {
+      return ''
+    }
+
+    return `<button onclick="app.CarsController.destroyCar('${this.id}')" class="btn btn-outline-danger">Delete Car</button>`
   }
 }
 
