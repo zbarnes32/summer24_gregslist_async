@@ -4,9 +4,16 @@ import { api } from "./AxiosService.js"
 
 class CarsService {
   async destroyCar(carId) {
+    // NOTE important that the network request happens first
     const response = await api.delete(`api/cars/${carId}`)
 
-    console.log('🐕🪓🏎️', response.data);
+    console.log('🐕🪓🏎️', response.data); // response data: 'deleted value'
+
+    const carIndex = AppState.cars.findIndex((car) => car.id == carId)
+
+    if (carIndex == -1) throw new Error("Find index is messed up dawg")
+
+    AppState.cars.splice(carIndex, 1)
   }
   async createCar(carData) {
     // First argument passed to post is where we are sending the request, second argument is the payload for the request
