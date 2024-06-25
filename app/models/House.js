@@ -23,7 +23,7 @@ export class House {
               </div>
               <div class="col-12 col-md-8">
                 <div class="p-3">
-                  <h2>$${this.price}</h2>
+                  <h2>$${this.price.toLocaleString()}</h2>
                   <h3>Bedroom(s):${this.bedrooms} Bathroom(s): ${this.bathrooms}</h3>
                   <h4>Build in ${this.year}</h4>
                   <h5>Description: ${this.description}</h5>
