@@ -23,6 +23,8 @@ export class CarsController {
       await carsService.createCar(carData)
 
       // TODO clear form AFTER network request
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       Pop.error(error) //notify user
       console.error('FAILED TO CREATE CAR', error) //notify developer
