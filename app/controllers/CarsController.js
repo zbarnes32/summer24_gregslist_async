@@ -7,9 +7,9 @@ export class CarsController {
   }
   // CREATE
   // READ
-  getCars() {
+  async getCars() {
     try {
-      carsService.getCars()
+      await carsService.getCars()
     } catch (error) {
       Pop.error(error) //notify user
       console.error('FAILED TO GET CARS', error) //notify developer
@@ -17,4 +17,7 @@ export class CarsController {
   }
   // UPDATE *
   // DELETE
+
+
+
 }
