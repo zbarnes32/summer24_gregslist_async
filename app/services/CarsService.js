@@ -8,7 +8,13 @@ class CarsService {
     // 🐕🗞️------> codeWorks sandbox API
     const response = await api.post('api/cars', carData)
 
+    // NOTE response data is the car that was stored in the database, with extra properties (id, createdAt, creator, etc....)
     console.log('🐕🚙✨<-------', response.data);
+
+    const newCar = new Car(response.data)
+
+    AppState.cars.push(newCar) //💂
+
   }
   async getCars() {
     // 🐕------> codeWorks sandbox API
