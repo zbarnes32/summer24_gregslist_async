@@ -16,14 +16,14 @@ export class House {
     get houseCardTemplate() {
         return `
         <div class="col-12 mb-3">
-          <div class="shadow house-card">
+          <div class="shadow house-card mb-3">
             <div class="row">
               <div class="col-12 col-md-4 ">
-                <img class="img-fluid bg-dark" src="${this.imgUrl}" alt="Image of house">
+                <img class="img-fluid bg-dark house-image" src="${this.imgUrl}" alt="Image of house">
               </div>
               <div class="col-12 col-md-8">
                 <div class="p-3">
-                  <h2>${this.price}</h2>
+                  <h2>$${this.price}</h2>
                   <h3>Bedroom(s):${this.bedrooms} Bathroom(s): ${this.bathrooms}</h3>
                   <h4>Build in ${this.year}</h4>
                   <h5>Description: ${this.description}</h5>
