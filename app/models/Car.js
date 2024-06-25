@@ -17,7 +17,7 @@ export class Car {
   get cardHTMLTemplate() {
     return `
     <div class="col-12 mb-3">
-      <div class="car-card shadow">
+      <div class="car-card shadow" style="border-color: ${this.color};">
         <div class="row">
           <div class="col-12 col-md-4">
             <img class="img-fluid bg-dark car-img"
@@ -28,7 +28,10 @@ export class Car {
             <div class="p-3">
               <h2>${this.year} ${this.make} ${this.model}</h2>
               <h2>$${this.price}</h2>
+              <h3>Listed on ${this.createdAt.toLocaleString()}</h3>
+              <p>Listed by ${this.creator.name}</p>
               <p>${this.description}</p>
+              <p>Engine Type: ${this.engineType}</p>
             </div>
           </div>
         </div>
