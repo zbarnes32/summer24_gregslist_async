@@ -1,3 +1,5 @@
+import { AppState } from "../AppState.js";
+import { Car } from "../models/Car.js";
 import { api } from "./AxiosService.js"
 
 class CarsService {
@@ -8,6 +10,11 @@ class CarsService {
 
     // NOTE Always log the response data
     console.log('🐕🏎️🚓🚙<-------', response.data);
+
+    // NOTE response.data is the array of data we care about (the meat)
+    const newCars = response.data.map((carPOJO) => new Car(carPOJO))
+
+    AppState.cars = newCars
   }
 }
 
