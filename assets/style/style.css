@@ -9,3 +9,10 @@
 .profile-picture.profile-picture-sm {
   height: 64px;
 }
+
+.car-img {
+  min-height: 100%;
+  max-height: 55vh;
+  width: 100%;
+  object-fit: cover;
+}

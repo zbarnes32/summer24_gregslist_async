@@ -1,8 +1,12 @@
+import { AppState } from "../AppState.js";
 import { carsService } from "../services/CarsService.js";
 import { Pop } from "../utils/Pop.js";
+import { setHTML } from "../utils/Writer.js";
 
 export class CarsController {
   constructor() {
+    AppState.on('cars', this.drawCars)
+
     this.getCars()
   }
   // CREATE
@@ -19,5 +23,10 @@ export class CarsController {
   // DELETE
 
 
-
+  drawCars() {
+    const cars = AppState.cars
+    let innerHTMLString = ''
+    cars.forEach((car) => innerHTMLString += car.cardHTMLTemplate)
+    setHTML('carListings', innerHTMLString)
+  }
 }

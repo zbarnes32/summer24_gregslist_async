@@ -20,16 +20,15 @@ export class Car {
       <div class="car-card shadow">
         <div class="row">
           <div class="col-12 col-md-4">
-            <img class="img-fluid bg-dark"
-              src="https://images.unsplash.com/photo-1552615526-40e47a79f9d7?q=80&w=2176&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Mazda Miata">
+            <img class="img-fluid bg-dark car-img"
+              src="${this.imgUrl}"
+              alt="${this.make} ${this.model}">
           </div>
           <div class="col-12 col-md-8">
             <div class="p-3">
-              <h2>1997 Mazda Miata</h2>
-              <h2>$6000</h2>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed veritatis ullam mollitia sit perspiciatis
-                totam eligendi commodi, debitis earum alias!</p>
+              <h2>${this.year} ${this.make} ${this.model}</h2>
+              <h2>$${this.price}</h2>
+              <p>${this.description}</p>
             </div>
           </div>
         </div>
