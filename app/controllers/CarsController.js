@@ -17,6 +17,9 @@ export class CarsController {
       const form = event.target // get the form element out of the HTML
       const carData = getFormData(form) // get the data out of the form
       console.log('RAW CAR DATA', carData);
+      await carsService.createCar(carData)
+
+      // TODO clear form AFTER network request
     } catch (error) {
       Pop.error(error) //notify user
       console.error('FAILED TO CREATE CAR', error) //notify developer
