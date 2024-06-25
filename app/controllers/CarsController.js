@@ -2,7 +2,7 @@ import { AppState } from "../AppState.js";
 import { carsService } from "../services/CarsService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
-import { setHTML } from "../utils/Writer.js";
+import { setHTML, setText } from "../utils/Writer.js";
 
 export class CarsController {
   constructor() {
@@ -75,5 +75,12 @@ export class CarsController {
     if (!carFormElement) return
 
     carFormElement.classList.remove('d-none')
+  }
+
+  drawPrice() {
+    // @ts-ignore
+    const valueFromRange = event.target.value
+
+    setText('carPriceFromRange', valueFromRange)
   }
 }
