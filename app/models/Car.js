@@ -11,7 +11,9 @@ export class Car {
     this.price = data.price
     this.description = data.description
     this.engineType = data.engineType
+    // createdAt property can be passed through Date constructor so we can format to our liking
     this.createdAt = new Date(data.createdAt)
+    // updatedAt property can be passed through Date constructor so we can format to our liking
     this.updatedAt = new Date(data.updatedAt)
     this.color = data.color
     this.creatorId = data.creatorId
@@ -50,10 +52,12 @@ export class Car {
   get computeDeleteButton() {
     // NOTE this checks if the logged in user created the car
     // NOTE ? is the elvis operator. If the property before the elvis operator is null or undefined, it returns null or undefined and does not drill into that property
+    // if the logged in user did not create the car
     if (this.creatorId != AppState.account?.id) {
       return ''
     }
 
+    // else
     return `<button onclick="app.CarsController.destroyCar('${this.id}')" class="btn btn-outline-danger">Delete Car</button>`
   }
 }

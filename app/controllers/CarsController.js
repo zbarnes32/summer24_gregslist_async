@@ -6,13 +6,17 @@ import { setHTML, setText } from "../utils/Writer.js";
 
 export class CarsController {
   constructor() {
-    AppState.on('cars', this.drawCars)
-    AppState.on('account', this.drawCars)
-    AppState.on('account', this.showCarForm)
+    AppState.on('cars', this.drawCars) // 💂 ---> AppState.cars
+    // NOTE drawCars fires off when the user is logged in
+    AppState.on('account', this.drawCars) // 💂 ---> AppState.account
+    // NOTE showCarForm fires off when the user is logged in
+    AppState.on('account', this.showCarForm) // 💂 ---> AppState.account
 
     this.getCars()
+    // NOTE we attempt to to show the form if the user navigates to the car page from another page
     this.showCarForm()
   }
+
   // CREATE
   async createCar() {
     try {
@@ -22,9 +26,8 @@ export class CarsController {
       console.log('RAW CAR DATA', carData);
       await carsService.createCar(carData)
 
-      // TODO clear form AFTER network request
       // @ts-ignore
-      form.reset()
+      form.reset() // clears form inputs
     } catch (error) {
       Pop.error(error) //notify user
       console.error('FAILED TO CREATE CAR', error) //notify developer
@@ -63,6 +66,7 @@ export class CarsController {
   drawCars() {
     const carListingsElement = document.getElementById('carListings')
 
+    // if there is no element (we are on a different page)
     if (!carListingsElement) return
 
     const cars = AppState.cars
@@ -75,8 +79,10 @@ export class CarsController {
   showCarForm() {
     const carFormElement = document.getElementById('carForm')
 
+    // if the user is not logged in
     if (!AppState.account) return
 
+    // if there is no element (we are on a different page)
     if (!carFormElement) return
 
     carFormElement.classList.remove('d-none')
