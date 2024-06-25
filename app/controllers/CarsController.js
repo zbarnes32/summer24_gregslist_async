@@ -11,6 +11,7 @@ export class CarsController {
     AppState.on('account', this.showCarForm)
 
     this.getCars()
+    this.showCarForm()
   }
   // CREATE
   async createCar() {
@@ -71,6 +72,8 @@ export class CarsController {
 
   showCarForm() {
     const carFormElement = document.getElementById('carForm')
+
+    if (!AppState.account) return
 
     if (!carFormElement) return
 
