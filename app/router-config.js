@@ -10,6 +10,11 @@ export const router = new Router([
     controllers: [HomeController],
     view: 'app/views/HomeView.html'
   },
+  {
+    path: '#/cars',
+    controllers: [],
+    view: 'app/views/CarsView.html'
+  },
   // NOTE do not touch!
   {
     path: '#/account',
