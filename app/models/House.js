@@ -1,5 +1,5 @@
 export class House {
-    constructor(data){
+    constructor(data) {
         this.id = data.id
         this.bedrooms = data.bedrooms
         this.bathrooms = data.bathrooms
@@ -7,12 +7,35 @@ export class House {
         this.imgUrl = data.imgUrl
         this.year = data.year
         this.price = data.price
-        this.description =  data.description
+        this.description = data.description
         this.createdAt = data.createdAt
         this.updatedAt = data.updatedAt
         this.creator = data.creator
     }
-    
+
+    get houseCardTemplate() {
+        return `
+        <div class="col-12 mb-3">
+          <div class="shadow house-card">
+            <div class="row">
+              <div class="col-12 col-md-4 ">
+                <img class="img-fluid bg-dark" src="${this.imgUrl}" alt="Image of house">
+              </div>
+              <div class="col-12 col-md-8">
+                <div class="p-3">
+                  <h2>${this.price}</h2>
+                  <h3>Bedroom(s):${this.bedrooms} Bathroom(s): ${this.bathrooms}</h3>
+                  <h4>Build in ${this.year}</h4>
+                  <h5>Description: ${this.description}</h5>
+                  <div class="text-end">
+                    <button onclick="" class="btn btn-outline-danger" type="button">Delete House</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        `
+    }
 }
 
 // const rawHouseData = {

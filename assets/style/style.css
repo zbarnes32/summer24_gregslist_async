@@ -21,3 +21,14 @@
   border-style: solid;
   border-width: 2px;
 }
+
+.house-card {
+  border: 2px solid;
+}
+
+.house-image {
+  min-height: 100%;
+  max-height: 55vh;
+  width: 100%;
+  object-fit: cover;
+}
