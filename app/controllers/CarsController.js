@@ -8,6 +8,7 @@ export class CarsController {
   constructor() {
     AppState.on('cars', this.drawCars)
     AppState.on('account', this.drawCars)
+    AppState.on('account', this.showCarForm)
 
     this.getCars()
   }
@@ -61,5 +62,10 @@ export class CarsController {
     let innerHTMLString = ''
     cars.forEach((car) => innerHTMLString += car.cardHTMLTemplate)
     setHTML('carListings', innerHTMLString)
+  }
+
+  showCarForm() {
+    const carFormElement = document.getElementById('carForm')
+    carFormElement.classList.remove('d-none')
   }
 }
