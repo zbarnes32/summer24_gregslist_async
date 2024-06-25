@@ -3,6 +3,11 @@ import { Car } from "../models/Car.js";
 import { api } from "./AxiosService.js"
 
 class CarsService {
+  async destroyCar(carId) {
+    const response = await api.delete(`api/cars/${carId}`)
+
+    console.log('🐕🪓🏎️', response.data);
+  }
   async createCar(carData) {
     // First argument passed to post is where we are sending the request, second argument is the payload for the request
     // 🐕🗞️------> codeWorks sandbox API

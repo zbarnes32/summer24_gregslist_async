@@ -40,7 +40,15 @@ export class CarsController {
   // DELETE
   async destroyCar(carId) {
     try {
-      console.log('destroying car with the id of ' + carId);
+      // NOTE have to await Pop.confirm
+      const wantsToDelete = await Pop.confirm("Are you sure that you want to delete this car?")
+
+      if (!wantsToDelete) return //stop function
+
+
+      await carsService.destroyCar(carId)
+
+      Pop.success("Car was deleted!")
     } catch (error) {
       Pop.error(error) //notify user
       console.error('FAILED TO DESTROY CAR', error) //notify developer
