@@ -58,14 +58,22 @@ export class CarsController {
   }
 
   drawCars() {
+    const carListingsElement = document.getElementById('carListings')
+
+    if (!carListingsElement) return
+
     const cars = AppState.cars
     let innerHTMLString = ''
     cars.forEach((car) => innerHTMLString += car.cardHTMLTemplate)
-    setHTML('carListings', innerHTMLString)
+
+    carListingsElement.innerHTML = innerHTMLString
   }
 
   showCarForm() {
     const carFormElement = document.getElementById('carForm')
+
+    if (!carFormElement) return
+
     carFormElement.classList.remove('d-none')
   }
 }
