@@ -4,8 +4,9 @@ import { api } from "./AxiosService.js"
 
 class CarsService {
   async createCar(carData) {
-    // 🐕------> codeWorks sandbox API
-    const response = await api.post('api/cars')
+    // First argument passed to post is where we are sending the request, second argument is the payload for the request
+    // 🐕🗞️------> codeWorks sandbox API
+    const response = await api.post('api/cars', carData)
 
     console.log('🐕🚙✨<-------', response.data);
   }
