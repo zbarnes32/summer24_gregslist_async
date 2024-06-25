@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { carsService } from "../services/CarsService.js";
+import { getFormData } from "../utils/FormHandler.js";
 import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
@@ -10,6 +11,19 @@ export class CarsController {
     this.getCars()
   }
   // CREATE
+  async createCar() {
+    try {
+      event.preventDefault() // do not refresh
+      const form = event.target // get the form element out of the HTML
+      const carData = getFormData(form) // get the data out of the form
+      console.log('RAW CAR DATA', carData);
+    } catch (error) {
+      Pop.error(error) //notify user
+      console.error('FAILED TO CREATE CAR', error) //notify developer
+    }
+  }
+
+
   // READ
   async getCars() {
     try {

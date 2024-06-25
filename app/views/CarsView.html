@@ -5,6 +5,81 @@
     </div>
   </section>
 
+  <!-- FIXME hide this form until they click a button -->
+  <section class="row my-3">
+    <div class="col-12">
+      <div class="p-3 cool-form">
+        <form onsubmit="app.CarsController.createCar()">
+          <div class="mb-3">
+            <label for="make" class="form-label">Car Make</label>
+            <input type="text" class="form-control" id="make" placeholder="Car Make..." required maxlength="100"
+              name="make">
+          </div>
+          <div class="mb-3">
+            <label for="model" class="form-label">Car Model</label>
+            <input type="text" class="form-control" id="model" placeholder="Car Model..." required maxlength="150"
+              name="model">
+          </div>
+          <div class="mb-3">
+            <label for="year" class="form-label">Car Year</label>
+            <input type="number" class="form-control" id="year" placeholder="2025" required min="1908" max="2026"
+              name="year">
+          </div>
+          <div class="mb-3">
+            <label for="mileage" class="form-label">Car Mileage</label>
+            <input type="number" class="form-control" id="mileage" placeholder="0" required min="0" max="400000"
+              name="mileage">
+          </div>
+          <div class="mb-3">
+            <!-- FIXME show how to pull number out of input and display -->
+            <label for="price" class="form-label">Car Price</label>
+            <input type="range" class="form-range" id="price" min="0" max="1000000" name="price">
+          </div>
+          <div class="mb-3">
+            <label for="imgURL" class="form-label">Car ImgURL</label>
+            <input type="url" class="form-control" id="imgURL" required maxlength="2000" name="imgURL">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Car Description</label>
+            <textarea class="form-control" id="description" rows="3" maxlength="2000" name="description"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="fuelType">Type of Fuel</label>
+            <select class="form-select" id="fuelType" name="fuelType" required>
+              <option selected disabled value="">Open this select menu</option>
+              <option value="gasoline">Gasoline</option>
+              <option value="diesel">Diesel</option>
+              <option value="electricity">Electricity</option>
+              <option value="oats">Oats</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="color" class="form-label">Car Color</label>
+            <input type="color" class="form-control form-control-color" id="color" value="#00000"
+              title="Choose your car's color" name="color">
+          </div>
+          <div class="d-flex gap-4">
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="hasCleanTitle" name="hasCleanTitle">
+              <label class="form-check-label" for="hasCleanTitle">
+                Does the car have a clean title?
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="runs" name="runs">
+              <label class="form-check-label" for="runs">
+                Does the car run?
+              </label>
+            </div>
+          </div>
+          <div class="text-end">
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section id="carListings" class="row">
     <!-- <div class="col-12 mb-3">
       <div class="car-card shadow">
@@ -26,4 +101,6 @@
       </div>
     </div> -->
   </section>
+
+
 </div>
