@@ -3,7 +3,9 @@ import { logger } from '../utils/Logger.js';
 
 // @ts-ignore
 // eslint-disable-next-line no-undef
+// NOTE this exported variable is what we will be using to send requests to the codeworks sandbox api
 export const api = axios.create({
+  // NOTE baseURL is set up in env.js, it is where this api axios instance will send network requests to
   baseURL: baseURL,
   timeout: 8000,
   withCredentials: true
@@ -20,9 +22,9 @@ function handleAxiosError(error) {
   } else if (error.request) {
     // The request was made but no response was received
     logger.warn('[📡 AXIOS_ERROR_NO_RESPONSE]', error.request)
-  }else {
+  } else {
     // Something happened in setting up the request that triggered an Error
-    logger.warn('[📡 AXIOS_ERROR_INVALID_REQUEST]',error.message)
+    logger.warn('[📡 AXIOS_ERROR_INVALID_REQUEST]', error.message)
   }
   return Promise.reject(error)
 }
