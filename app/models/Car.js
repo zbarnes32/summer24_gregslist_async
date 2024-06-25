@@ -1,5 +1,6 @@
 export class Car {
   constructor(data) {
+    // REVIEW make sure to save the id from the API, do not generate here
     this.id = data.id || data._id
     this.make = data.make
     this.model = data.model
@@ -32,6 +33,9 @@ export class Car {
               <p>Listed by ${this.creator.name}</p>
               <p>${this.description}</p>
               <p>Engine Type: ${this.engineType}</p>
+              <div class="text-end">
+                <button onclick="app.CarsController.destroyCar('${this.id}')" class="btn btn-outline-danger">Delete Car</button>
+              </div>
             </div>
           </div>
         </div>

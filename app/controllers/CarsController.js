@@ -36,9 +36,16 @@ export class CarsController {
       console.error('FAILED TO GET CARS', error) //notify developer
     }
   }
-  // UPDATE *
-  // DELETE
 
+  // DELETE
+  async destroyCar(carId) {
+    try {
+      console.log('destroying car with the id of ' + carId);
+    } catch (error) {
+      Pop.error(error) //notify user
+      console.error('FAILED TO DESTROY CAR', error) //notify developer
+    }
+  }
 
   drawCars() {
     const cars = AppState.cars
