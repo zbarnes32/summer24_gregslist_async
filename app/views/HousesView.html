@@ -1,9 +1,50 @@
 <section class="container">
     <div class="row">
         <div class="col-12">
+            <div>
+                <form onsubmit="">
+                    <div class="mb-2">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="number" class="form-control" id="price" placeholder="Price of house" required name="price">
+                    </div>
+                    <div class="mb-2">
+                        <label for="bedrooms" class="form-label">Bedrooms:</label>
+                        <input type="number" class="form-control" id="bedrooms" placeholder="0" required name="bedrooms">
+                    </div>
+                    <div class="mb-2">
+                        <label for="bathrooms" class="form-label">Bathrooms:</label>
+                        <input type="number" class="form-control" id="bathrooms" placeholder="0" required name="bathrooms">
+                    </div>
+                    <div class="mb-2">
+                        <label for="levels" class="form-label">Levels:</label>
+                        <input type="number" class="form-control" id="levels" placeholder="0" required name="levels">
+                    </div>
+                    <div class="mb-2">
+                        <label for="imgUrl" class="form-label">Image URL:</label>
+                        <input type="number" class="form-control" id="imgUrl" placeholder="insert image url link here" required maxlength="500" name="imgUrl">
+                    </div>
+                    <div class="mb-2">
+                        <label for="year" class="form-label">Year:</label>
+                        <input type="number" class="form-control" id="year" placeholder="When was the house built?" required name="year">
+                    </div>
+                    <div class="mb-2">
+                        <label for="description" class="form-label">Description:</label>
+                        <input type="text" class="form-control" id="description" placeholder="Type the house's description here" required maxlength="5000" name="description">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-12">
             <h1 class="text-center">House Listings</h1>
         </div>
     </div>
+
     <div class="row" id="houseListings">
 
     </div>

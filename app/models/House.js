@@ -24,9 +24,11 @@ export class House {
               <div class="col-12 col-md-8">
                 <div class="p-3">
                   <h2>$${this.price.toLocaleString()}</h2>
-                  <h3>Bedroom(s):${this.bedrooms} Bathroom(s): ${this.bathrooms}</h3>
+                  <h3>Bedroom(s): ${this.bedrooms} | Bathroom(s): ${this.bathrooms} | Level(s): ${this.levels}</h3>
                   <h4>Build in ${this.year}</h4>
                   <h5>Description: ${this.description}</h5>
+                  <h5>List Date: ${this.createdAt.toLocaleString()}</h5>
+                  <h6>Listed by: ${this.creator.name}</h6>
                   <div class="text-end">
                     <button onclick="" class="btn btn-outline-danger" type="button">Delete House</button>
                   </div>

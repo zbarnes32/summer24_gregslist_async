@@ -3,6 +3,9 @@ import { Car } from "../models/Car.js";
 import { api } from "./AxiosService.js"
 
 class CarsService {
+  createHouse(houseData) {
+      throw new Error("Method not implemented.");
+  }
   async destroyCar(carId) {
     // NOTE important that the network request happens first
     // NOTE when we send a delete request, we specify which collection we want to delete the resource from, and the id of the resource we want to delete in the request URL
